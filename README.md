@@ -32,4 +32,4 @@ docker-compose up -d
 docker compose up -d
 ```
 
-Bei erstmaliger Ausführung bitte etwas warten (mindestens 10-15 Sekunden) und http://localhost:8080 aufrufen.
+Bei erstmaliger Ausführung bitte etwas warten (ca. eine Minute) und http://localhost:8080 aufrufen.

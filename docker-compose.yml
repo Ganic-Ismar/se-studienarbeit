@@ -17,6 +17,9 @@ services:
     restart: always
     networks:
       - springboot-mysql
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
       
   spring-app:
     build:
@@ -35,8 +38,6 @@ services:
         condition: service_started
     networks:
       - springboot-mysql
-
-
 
 networks:
   springboot-mysql:
