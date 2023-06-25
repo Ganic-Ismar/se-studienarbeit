@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { LoadS, InputSide, TableSide, Footer } from "./components";
 
 const App = () => {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
 
   const delay = ms => new Promise(
     resolve => setTimeout(resolve, ms)
@@ -29,7 +29,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    //getLoading();
+    getLoading();
   }, []);
 
   return (
