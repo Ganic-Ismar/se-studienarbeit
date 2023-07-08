@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <>
-      <div className="backgroundAnim">
+      <div className="backgroundAnim overflow-hidden">
         <div className="absolute w-full h-full bg-black/50">
           { loading ? <LoadS /> : null}
           <div className="h-full">

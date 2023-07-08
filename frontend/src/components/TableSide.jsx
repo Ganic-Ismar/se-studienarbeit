@@ -34,7 +34,7 @@ function TableSide(){
     
 
     return (
-        <div className="flex justify-center pt-20 w-full h-full overflow-scroll">
+        <div className="flex justify-center pt-20 w-full h-full">
             <form className="bg-neutral-900 border-[#3d3d3d] border-2 shadow-lg shadow-md rounded px-10 pt-6 pb-8 mb-4 w-full max-w-[90%] h-full max-h-[80%]">
                 <div class="relative flex flex-wrap mb-6">
                     <div class="w-full w-1/2 px-3 mb-6 md:mb-0">
@@ -48,12 +48,11 @@ function TableSide(){
                         </label>
                     </div>
                 </div>
-                <div className="mb-6 mt-5 max-h-[90%] overflow-scroll">
-
-                    <div class="flex flex-col w-full">
-                        <div class="-m-1 overflow-scroll-auto">
+                <div className="mb-6 mt-5 max-h-[93%] hover:overflow-auto overflow-hidden">
+                    <div class="flex flex-col w-full f-full">
+                        <div class="-m-1">
                             <div class="p-1.5 min-w-full inline-block align-middle">
-                                <div class="border border-[#3d3d3d] border-2 rounded-lg shadow overflow-hidden shadow-gray-900">
+                                <div class="border border-[#3d3d3d] border-2 rounded-lg shadow shadow-gray-900">
                                     <table class="min-w-full divide-y divide-[#3d3d3d]">
                                         <thead class="bg-[#121212]">
                                             <tr>

@@ -10,15 +10,35 @@ const InputSide = () => {
     const [openConf, setOpenConf] = React.useState(false);
     const [openMail, setOpenMail] = React.useState(false);
 
+    const [passwdSP, setPasswdSP] = useState(false);
+    const [passwdN, setPasswdN] = useState(false);
+    const [passwdLE, setPasswdLE] = useState(false);
+
     const contentStyle = { background: 'rgba(0,0,0,0.2)', border: '2px', padding: '4px', width: '35rem', height: '15rem' };
     const overlayStyle = { background: 'rgba(0,0,0,0.5)' };
     const arrowStyle = { color: '#000' }; // style for an svg element
 
     const handleChangeName = event => {
-    const result = event.target.value.replace(/[^a-z]/gi, '');
+    const result = event.target.value.replace(/[^a-zA-Z ]*$/, '');
 
     setName(result);
   };
+
+    const handleChangePasswd = event => {
+        const inp = event.target.value;
+        setPasswdLE(false);
+        setPasswdN(false);
+        setPasswdSP(false);
+        if (inp.length >= 10) {
+            setPasswdLE(true);
+        }
+        if (inp.match("(?=.*[0-9])")) {
+            setPasswdN(true);
+        }
+        if (inp.match("(?=.*[!@#\$%\^&\*])")) {
+            setPasswdSP(true);
+        }
+    }
 
   const handleChangeOrt = event => {
     const result = event.target.value.replace(/[^a-z]/gi, '');
@@ -39,7 +59,10 @@ const InputSide = () => {
     const form = e.target;
     const formData = new FormData(form);
     checkEmail(form.email.value, formData);
-
+    form.reset();
+    setPasswdLE(false);
+    setPasswdN(false);
+    setPasswdSP(false);
   }
 
   async function sendData (form) {
@@ -58,11 +81,9 @@ const InputSide = () => {
         for (let i = 0; i < data.length; i++) {
             if (data[i].email === mail)
             {
-                console.log("ttur");
                 return true;
             }
         }
-        console.log("false")
         return false;
     }
 
@@ -95,7 +116,7 @@ const InputSide = () => {
                         <label class="block text-white-700 text-sm font-bold mb-2" for="name">
                             Name
                         </label>
-                        <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" value={name} onChange={handleChangeName} type="text" placeholder="Max Mustermann" required/>
+                        <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" value={name} onChange={handleChangeName} type="text" placeholder="Max Mustermann"/>
                     </div>
                     <div class="mb-4">
                         <label class="block text-white-700 text-sm font-bold mb-2" for="mail">
@@ -107,27 +128,32 @@ const InputSide = () => {
                         <label class="block text-white-700 text-sm font-bold mb-2" for="Strasse">
                             Straße
                         </label>
-                        <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="Strasse" name="strasse" type="text" placeholder="" minLength={7} required/>
+                        <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="Strasse" name="strasse" type="text" placeholder="" minLength={7}/>
                     </div>
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block text-white-700 text-sm font-bold mb-2" for="plz">
                                     PLZ
                                 </label>
-                                <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="plz" name="plz" value={plz} onChange={handleChangePlz} type="text" placeholder="" maxLength={5} minLength={5} required/>
+                                <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="plz" name="plz" value={plz} onChange={handleChangePlz} type="text" placeholder="" maxLength={5} minLength={5}/>
                             </div>
                             <div class="w-full md:w-1/2 px-3">
                                 <label class="block text-white-700 text-sm font-bold mb-2" for="ort">
                                     Ort
                                 </label>
-                                <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="ort" type="text" name="ort" value={ort} onChange={handleChangeOrt} placeholder="" required/>
+                                <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="ort" type="text" name="ort" value={ort} onChange={handleChangeOrt} placeholder=""/>
                             </div>
                         </div>
                     <div class="mb-6 mt-12">
                         <label class="block text-white-700 text-sm font-bold mb-2" for="password">
                             Password
                         </label>
-                        <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="*****" required/>
+                        <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" onChange={handleChangePasswd} placeholder="**********" autocomplete="off" pattern="(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{10,}" required/>
+                        <div class="flex justify-center text-neutral-600 mt-2">
+                            <label class={`text-xs mb-1 ${ passwdLE ? 'text-green-600' : 'text-red-600' }`}>>= 10 Stellen</label> <label class="text-neutral-600 text-xs mb-1">&#x2800;|&#x2800;</label>
+                            <label class={`text-xs mb-1 ${ passwdN ? 'text-green-600' : 'text-red-600' }`}>Zahl</label> <label class="text-neutral-600 text-xs mb-1">&#x2800;|&#x2800;</label>
+                            <label class={`text-xs mb-1 ${ passwdSP ? 'text-green-600' : 'text-red-600' }`}>Sonderzeichen</label>
+                        </div>
                     </div>
                     <div class="mb-6 mt-10">
                         <button type="submit" className="w-full shadow bg-purple-600 hover:bg-purple-800 text-white-200 font-bold py-2 px-4 rounded-lg inline-flex items-center justify-center">
@@ -168,7 +194,7 @@ const InputSide = () => {
                 >
                 {
                     close => (
-                        <div className=''>
+                        <div className='overflow-hidden'>
                             <div className="flex justify-center mt-5">
                                 <svg className="w-[15%] h-[15%] stroke-red-600" viewBox="0 0 20 20">
 							        <path d="M 10.219 1.688 c -4.471 0 -8.094 3.623 -8.094 8.094 s 3.623 8.094 8.094 8.094 s 8.094 -3.623 8.094 -8.094 S 14.689 1.688 10.219 1.688 M 10.219 17.022 c -3.994 0 -7.242 -3.247 -7.242 -7.241 c 0 -3.994 3.248 -7.242 7.242 -7.242 c 3.994 0 7.241 3.248 7.241 7.242 C 17.46 13.775 14.213 17.022 10.219 17.022 M 5 9 L 15 9 L 15 11 L 5 11 L 5 9"></path>
