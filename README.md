@@ -49,13 +49,9 @@ Außerdem kann der Inhalt der SQL-Datenbank über den "Refresh"-Button angezeigt
 
 In unserem GitLab-Repository ist bereits eine Jar-Datei enthalten aus der ein Docker-Image erzeugt werden kann. Das Dockerfile dazu befindet sich im Stammverzeichnis.
 
-~~~bash
-docker build -t spring_studienarbeit .
+**(Optional)**
 
-docker run -p 8080:8080 spring_studienarbeit
-~~~
-
-Beachten Sie, dass eine MySQL-Datenbank (Port 3307) im Hintergrund ausgeführt werden muss, damit die Spring-Boot-Applikation startet.
+`docker build -t spring_studienarbeit .`
 
 ### Anforderung 5.2 + 5.3
 
@@ -63,7 +59,7 @@ Der einfachste Weg um das Projekt zum Laufen zu bekommen ist mittels docker-comp
 
 `docker-compose up`
 
-Damit werden drei Docker-Container erzeugt:
+Damit werden mithilfe der docker-compose.yml drei Docker-Container erzeugt:
 
 - MySQL Datenbank
 - Spring-Boot-Backend
