@@ -16,7 +16,7 @@ Die Dateien zu der Anforderung 2 (Datenbankschema) befindet sich im Ordner "Abga
 
 ## Anforderung 3
 
-Die Dateien zu der Anforderung 2 (Datenbankschema) befindet sich im Ordner "Abgabe_Juli" -> "Anforderung_3".
+Die Dateien zu der Anforderung 3 (Datenbankschema) befindet sich im Ordner "Abgabe_Juli" -> "Anforderung_3".
 
 ## Anforderung 4
 
@@ -27,6 +27,17 @@ Es wurde ein Kundenregistrierungsprozess mit einem Spring-Boot-Backend gecoded. 
 Wir haben uns für dieses Projekt für ein React-Frontend entschieden. Dieses Frontend kann über docker-compose mit dem Backend und der Datenbank gestartet werden, dazu aber mehr bei Anforderung 5.
 
 Falls man das Projekt über docker-compose (empfohlen) startet, ist das Frontend über http://localhost:8081 erreichbar.
+
+Das Frontend besteht aus den Eingabefeldern:
+
+- Name (Muss-Feld)
+- E-Mail (Muss-Feld)
+- Passwort (Muss-Feld, mindestens 10 Zeichen, 1 Symbol, 1 Zeichen)
+- Straße (optional)
+- PLZ (optional)
+- Ort (optional)
+
+Außerdem kann der Inhalt der SQL-Datenbank über den "Refresh"-Button angezeigt werden.
 
 ## Anforderung 5
 
