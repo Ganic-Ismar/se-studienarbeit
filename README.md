@@ -55,6 +55,8 @@ In unserem GitLab-Repository ist bereits eine Jar-Datei enthalten aus der ein Do
 
 ### Anforderung 5.2 + 5.3
 
+#### Installation
+
 Der einfachste Weg um das Projekt zum Laufen zu bekommen ist mittels docker-compose. Dazu einfach folgendes im Stammverzeichnis ausführen:
 
 `docker-compose up`
