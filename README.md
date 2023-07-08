@@ -14,6 +14,8 @@ Die Dateien zu den Anforderungen 1.1 - 1.3 befinden sich im Ordner "Abgabe_Juni"
 
 Die Dateien zu der Anforderung 2 (Datenbankschema) befindet sich im Ordner "Abgabe_Juli" -> "Anforderung_2".
 
+**Datenbankversion 8.0.33**
+
 ## Anforderung 3
 
 Die Dateien zu der Anforderung 3 (Datenbankschema) befindet sich im Ordner "Abgabe_Juli" -> "Anforderung_3".
@@ -43,6 +45,8 @@ Außerdem kann der Inhalt der SQL-Datenbank über den "Refresh"-Button angezeigt
 
 ### Anforderung 5.1
 
+**Dieser Schritt kann übersprungen werden! Das Ausführen von docker-compose aus Anforderung 5.2 + 5.3 erledigt den "docker build"-Vorgang bereits von selbst. Hier ist lediglich, aus Dokumentationszwecken, aufgeführt wie man ein Docker-Image für das Spring-Boot-Backend aus dem Jar-File erzeugt.**
+
 In unserem GitLab-Repository ist bereits eine Jar-Datei enthalten aus der ein Docker-Image erzeugt werden kann. Das Dockerfile dazu befindet sich im Stammverzeichnis.
 
 ~~~bash
@@ -59,4 +63,10 @@ Der einfachste Weg um das Projekt zum Laufen zu bekommen ist mittels docker-comp
 
 `docker-compose up`
 
-Das Erzeugen der Images kann tatsächlich eine ganze Zeit lang dauern (je nachdem wie schnell der Rechner ist 2 - 4 Minuten...). Bitte einfach paar Minuten abwarten bis dieser Vorgang fertig ist. Anschließend startet die Spring-Boot-Applikation paar mal neu, da die SQL-Datenbank noch nicht fertig eingerichtet ist, bitte auch hier warten bis alle Dienste durch-gestartet sind. Anschließend können Sie unter http://localhost:8081 das React-Frontend aufrufen und Eingaben tätigen.
+Damit werden drei Docker-Container erzeugt:
+
+- MySQL Datenbank
+- Spring-Boot-Backend
+- React-Frontend
+
+Das Erzeugen der Images/Container kann tatsächlich eine ganze Zeit lang dauern (je nachdem wie schnell der Rechner ist 2 - 6 Minuten...). Bitte einfach paar Minuten abwarten bis dieser Vorgang abgeschlossen ist. Anschließend startet die Spring-Boot-Applikation paar mal neu, da die SQL-Datenbank noch nicht fertig eingerichtet ist, bitte auch hier warten bis alle Dienste durch-gestartet sind. Anschließend können Sie unter http://localhost:8081 das React-Frontend aufrufen und Eingaben tätigen.
