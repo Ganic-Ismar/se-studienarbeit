@@ -116,7 +116,7 @@ const InputSide = () => {
                         <label class="block text-white-700 text-sm font-bold mb-2" for="name">
                             Name
                         </label>
-                        <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" value={name} onChange={handleChangeName} type="text" placeholder="Max Mustermann"/>
+                        <input class="shadow placeholder-neutral-600 appearance-none rounded bg-[#121212] w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" value={name} onChange={handleChangeName} type="text" placeholder="Max Mustermann" required/>
                     </div>
                     <div class="mb-4">
                         <label class="block text-white-700 text-sm font-bold mb-2" for="mail">
