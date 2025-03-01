@@ -1,3 +1,5 @@
+**DISCLAIMER: Dieses Repository behandelt eine Studienarbeit aus dem Fach SE2. Dieses Projekt beinhaltet ein Java-Backend, React-Frontend und eine MariaDB.**
+
 # Software Engineering Studienarbeit
 
 Hier eine kleine Anleitung / Guide zu der Studienarbeit der Gruppe Ganic, bestehend aus den Teammitgliedern Julian Liegel, Florian Herrnberger und Ismar Ganic.
